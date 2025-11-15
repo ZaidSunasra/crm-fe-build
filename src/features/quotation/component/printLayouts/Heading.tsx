@@ -1,5 +1,4 @@
 import { type Dispatch, type SetStateAction } from "react"
-import { useParams } from "react-router"
 import Logo from "@/assets/logo.png"
 import { format } from "date-fns"
 import { capitalize } from "@/utils/formatData"
@@ -7,8 +6,6 @@ import { Input } from "@/shared/components/ui/input"
 import type { GetQuotationOutput } from "zs-crm-common"
 
 const Heading = ({ quotation, name, setName }: { quotation: GetQuotationOutput, name: string[], setName: Dispatch<SetStateAction<string[]>> }) => {
-
-    const { id } = useParams();
 
     return (
         <div>
@@ -30,7 +27,7 @@ const Heading = ({ quotation, name, setName }: { quotation: GetQuotationOutput, 
             <p>Factory Address: Gala No 5, Vakan Compound, Near Dynamic Co, Vakan Pada Raod, Vasai Phata, Vasai East, Dis. Palghar 401208. </p>
             <hr />
             <div className="mb-6 font-bold">
-                <p>Quotation No: {id}</p>
+                <p>Quotation No: {quotation.quotation_no}</p>
                 {quotation.quotation_products.length == 1 &&
                     <>
                         <Input
